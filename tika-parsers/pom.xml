@@ -945,7 +945,7 @@
         <version>${maven.shade.version}</version>
         <executions>
           <execution>
-          <phase>package</phase>
+            <phase>package</phase>
             <goals>
               <goal>shade</goal>
             </goals>
