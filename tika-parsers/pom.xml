@@ -945,13 +945,23 @@
         <version>${maven.shade.version}</version>
         <executions>
           <execution>
-          <phase>package</phase>
+            <phase>package</phase>
             <goals>
               <goal>shade</goal>
             </goals>
             <configuration>
+              <filters>
+                <filter>
+                  <artifact>*:*</artifact>
+                  <excludes>
+                    <exclude>META-INF/*.SF</exclude>
+                    <exclude>META-INF/*.DSA</exclude>
+                    <exclude>META-INF/*.RSA</exclude>
+                  </excludes>
+                </filter>
+              </filters>
               <shadedArtifactAttached>true</shadedArtifactAttached>
-              <shadedClassifierName>shady</shadedClassifierName>
+              <shadedClassifierName>shaded</shadedClassifierName>
               <relocations>
                 <relocation>
                   <pattern>org.apache.commons.compress</pattern>
